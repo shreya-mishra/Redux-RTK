@@ -8,29 +8,21 @@ const PLACEHOLDER_API = 'https://jsonplaceholder.typicode.com/todos/1';
 const App = () => {
   // const [data, setData] = useState([]);
   const dispatch = useDispatch();
-  const todos = useSelector(state => state.data);
+  const todos = useSelector(state => state.placeHolder);
   console.log('🚀 ~ App ~ todos:', todos);
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  const fetchData = async () => {
-    await fetch(PLACEHOLDER_API)
+  const fetchData = () => {
+    fetch(PLACEHOLDER_API)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         // setData(data);
-        dispatch({type: 'ADD_DATA', payload: {data: data}}); // calls reducer
+        dispatch({type: 'ADD_DATA', payload: data}); // calls reducer
       });
   };
   return (
     <View>
       <Text>App</Text>
       <Button title="press me" onPress={fetchData} />
-      {/* {todos.map(item => (
-        <Text>{item}</Text>
-      ))} */}
     </View>
   );
 };

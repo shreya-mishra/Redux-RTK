@@ -1,10 +1,11 @@
 const placeHolderReducer = (
-  state = [],
-  action: {type: string; payload: {data: any[]}},
+  state = ['data'],
+  action: {type: string; payload: []},
 ) => {
+  console.log('🚀 ~ action:', action);
   switch (action.type) {
     case 'ADD_DATA':
-      return [...state, ...action.payload.data];
+      return [...state, ...action.payload];
     case 'GET_DATA':
       return state;
     default:
