@@ -1,3 +1,5 @@
+// redux have pure functions and redux toolkit doesnt have that
+// RTK gives both actions and reducers combine, you can write it in createSlice file
 const placeHolderReducer = (
   state = ['data'],
   action: {type: string; payload: []},
