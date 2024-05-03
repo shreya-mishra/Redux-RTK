@@ -8,9 +8,12 @@ const PLACEHOLDER_API = 'https://jsonplaceholder.typicode.com/todos/1';
 const App = () => {
   // const [data, setData] = useState([]);
   const dispatch = useDispatch();
-  const todos = useSelector(state => state.placeHolderData);
-  console.log('🚀 ~ App ~ todos:', todos);
-
+  const newData = useSelector(state => state);
+  console.log('🚀 ~ App ~ newData:', newData);
+  // const {id} = newData?.[0];
+  // useEffect(() => {
+  //   setData(newData);
+  // }, [newData]);
   const fetchData = () => {
     console.log('here>>> stupid');
     fetch(PLACEHOLDER_API)
@@ -23,8 +26,15 @@ const App = () => {
   };
   return (
     <View>
-      <Text>App</Text>
+      <Text>REDUX / RTK Query</Text>
       <Button title="press me" onPress={fetchData} />
+      {/* <Text style={{color: 'white'}}>{id}</Text> */}
+      {/* <Text>{data[0]?.id}</Text>
+      <Text>{data[0]?.title}</Text>
+      <Text>{data[0]?.completed}</Text> */}
+      {newData?.map(item => (
+        <Text>{item.title}</Text>
+      ))}
     </View>
   );
 };
