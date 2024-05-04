@@ -8,6 +8,6 @@ const myReducers = combineReducers({
 // const store = createStore(myReducers);
 
 const store = configureStore({
-  reducer: placeHolderReducer,
+  reducer: {placeHolderReducer: placeHolderReducer},
 });
 export default store;
